@@ -1,0 +1,24 @@
+$background: #1e1e1e;
+$text-color: #ffffff;
+$primary-color: #ff385c;
+
+body {
+    background-color: $background;
+    color: $text-color;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+        color: lighten($primary-color, 10%);
+    }
+}
+
+div.dark-bg {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}

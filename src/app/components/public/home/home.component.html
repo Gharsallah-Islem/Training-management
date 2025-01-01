@@ -1,0 +1,31 @@
+<div class="dark-bg text-light">
+    <h1 class="text-dark">Bienvenue à l'ISET Rades</h1>
+    <p class="text-dark">
+        Explorez nos formations et découvrez des opportunités de développement personnel
+        et professionnel.
+    </p>
+</div>
+<div class="container mt-4">
+    <h2 class="text-dark">Catégories de Formations</h2>
+    <div class="row">
+        <div *ngFor="let category of categories" class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ category }}</h5>
+                    <a [routerLink]="['/formations']" class="btn btn-primary">Voir les Formations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <h2 class="text-dark">Formations Disponibles</h2>
+    <ul class="list-group">
+        <li *ngFor="let formation of formations" class="list-group-item">
+            <a [routerLink]="['/formations', formation.id]" class="text-primary">
+                {{ formation.title }}
+            </a>
+        </li>
+    </ul>
+</div>

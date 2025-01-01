@@ -1,0 +1,17 @@
+/* filepath: /C:/Users/islem/OneDrive/Bureau/Angular/training-management/src/app/components/public/formations/formations.component.scss */
+.card {
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    flex-grow: 1;
+}
+
+.btn-primary {
+    margin-top: auto;
+}

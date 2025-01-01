@@ -1,0 +1,8 @@
+<div class="dark-bg text-light">
+    <h2 class="text-dark">Liste des Candidats</h2>
+    <ul class="text-dark">
+        <li *ngFor="let candidate of candidates">
+            {{ candidate.name }} - {{ candidate.email }}
+        </li>
+    </ul>
+</div>

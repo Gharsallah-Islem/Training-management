@@ -1,0 +1,15 @@
+<div class="container mt-4">
+    <h2 class="text-dark">Formations Disponibles</h2>
+    <div class="row">
+        <div *ngFor="let formation of formations" class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img [src]="formation.photo" class="card-img-top" alt="{{ formation.title }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ formation.title }}</h5>
+                    <p class="card-text">{{ formation.description }}</p>
+                    <a [routerLink]="['/formations', formation.id]" class="btn btn-primary mt-auto">Voir les Détails</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
