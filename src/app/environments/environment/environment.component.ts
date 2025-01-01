@@ -12,5 +12,5 @@ export class EnvironmentComponent {
 }
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000' // Ensure this URL is correct
+  apiUrl: 'http://localhost:3000' 
 };

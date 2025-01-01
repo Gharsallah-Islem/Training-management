@@ -1,8 +1,49 @@
-<div class="dark-bg text-light">
-    <h2 class="text-dark">Gestion des Sessions</h2>
-    <ul class="text-dark">
-        <li *ngFor="let session of sessions">
-            {{ session.name }} - {{ session.date }}
+<div class="container mt-4">
+    <h2>Gestion des Sessions</h2>
+    <ul class="list-group">
+        <li *ngFor="let session of sessions" class="list-group-item">
+            <p><strong>Formation:</strong> {{ getFormationName(session.formationId) }}</p>
+            <p><strong>Formateurs:</strong> {{ getTrainerNames(session.trainerIds) }}</p>
+            <p><strong>Date de début:</strong> {{ session.startDate }}</p>
+            <p><strong>Date de fin:</strong> {{ session.endDate }}</p>
+            <p><strong>Description:</strong> {{ session.description }}</p>
+            <button class="btn btn-warning btn-sm me-2" (click)="editSession(session)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteSession(session.id)">Supprimer</button>
         </li>
     </ul>
+
+    <h3 class="mt-4">{{ isEditing ? 'Modifier Session' : 'Ajouter Session' }}</h3>
+    <form (ngSubmit)="isEditing ? updateSession() : addSession()">
+        <div class="form-group">
+            <label for="formationId">Formation</label>
+            <select class="form-control" id="formationId" [(ngModel)]="selectedSession.formationId" name="formationId"
+                required>
+                <option *ngFor="let formation of formations" [value]="formation.id">{{ formation.title }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="trainerIds">Formateurs</label>
+            <select class="form-control" id="trainerIds" [(ngModel)]="selectedSession.trainerIds" name="trainerIds"
+                multiple required>
+                <option *ngFor="let trainer of trainers" [value]="trainer.id">{{ trainer.firstName }} {{
+                    trainer.lastName }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="startDate">Date de début</label>
+            <input type="date" class="form-control" id="startDate" [(ngModel)]="selectedSession.startDate"
+                name="startDate" required>
+        </div>
+        <div class="form-group">
+            <label for="endDate">Date de fin</label>
+            <input type="date" class="form-control" id="endDate" [(ngModel)]="selectedSession.endDate" name="endDate"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" [(ngModel)]="selectedSession.description" name="description"
+                required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">{{ isEditing ? 'Modifier' : 'Ajouter' }}</button>
+    </form>
 </div>

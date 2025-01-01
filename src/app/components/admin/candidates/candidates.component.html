@@ -1,8 +1,31 @@
-<div class="dark-bg text-light">
-    <h2 class="text-dark">Liste des Candidats</h2>
-    <ul class="text-dark">
-        <li *ngFor="let candidate of candidates">
-            {{ candidate.name }} - {{ candidate.email }}
+<div class="container mt-4">
+    <h2>Gestion des Candidats</h2>
+    <ul class="list-group">
+        <li *ngFor="let candidate of candidates" class="list-group-item">
+            <p>{{ candidate.firstName }} {{ candidate.lastName }}</p>
+            <p>Email: {{ candidate.email }}</p>
+            <button class="btn btn-warning btn-sm me-2" (click)="editCandidate(candidate)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteCandidate(candidate.id)">Supprimer</button>
         </li>
     </ul>
+
+    <h3 class="mt-4">{{ isEditing ? 'Modifier Candidat' : 'Ajouter Candidat' }}</h3>
+    <form (ngSubmit)="isEditing ? updateCandidate() : addCandidate()">
+        <div class="form-group">
+            <label for="firstName">Prénom</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="selectedCandidate.firstName"
+                name="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Nom</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="selectedCandidate.lastName"
+                name="lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="selectedCandidate.email" name="email"
+                required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">{{ isEditing ? 'Modifier' : 'Ajouter' }}</button>
+    </form>
 </div>
