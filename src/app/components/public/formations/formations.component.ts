@@ -11,20 +11,19 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./formations.component.scss']
 })
 export class FormationsComponent {
-  formations: any[] = []; // All formations
-  filteredFormations: any[] = []; // Formations filtered by search
-  searchQuery: string = ''; // Search query
+  formations: any[] = []; 
+  filteredFormations: any[] = []; 
+  searchQuery: string = ''; 
 
   constructor(private formationService: FormationService) { }
 
   ngOnInit(): void {
     this.formationService.getFormations().subscribe((data) => {
       this.formations = data;
-      this.filteredFormations = data; // Initialize filteredFormations with all formations
+      this.filteredFormations = data; 
     });
   }
 
-  // Filter formations based on search query
   filterFormations(): void {
     this.filteredFormations = this.formations.filter((formation) =>
       formation.title.toLowerCase().includes(this.searchQuery.toLowerCase())

@@ -15,12 +15,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class FormationDetailsComponent implements OnInit {
   formation: any;
-  sessions: any[] = [];
-  trainers: any[] = [];
-  trainer: any;
-  isFull = false;
-  showForm = false;
-  candidate = { name: '', email: '' };
+  sessions: any[] = []; 
+  trainers: any[] = []; 
+  isFull = false; 
+  showForm = false; 
+  candidate = { name: '', email: '' }; 
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,27 +31,45 @@ export class FormationDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    console.log('Formation ID:', id);
-    this.formationService.getFormation(id).subscribe((data) => {
-      console.log('Formation Data:', data);
-      this.formation = data;
-      this.loadSessions();
-    });
+    console.log('Formation ID:', id); 
+
+    this.formationService.getFormation(id).subscribe(
+      (data) => {
+        this.formation = data;
+        this.isLoading = false; 
+        this.loadSessions(); 
+      },
+      (error) => {
+        console.error('Error fetching formation:', error); 
+        this.isLoading = false; 
+      }
+    );
+
     this.loadTrainers();
   }
 
   loadSessions(): void {
-    this.sessionService.getSessions().subscribe((sessions) => {
-      console.log('All Sessions:', sessions); // Debugging
-      this.sessions = sessions.filter((session: any) => session.formationId === Number(this.formation.id)); // Convert to number
-      console.log('Filtered Sessions:', this.sessions); // Debugging
-    });
+    this.sessionService.getSessions().subscribe(
+      (sessions) => { 
+        this.sessions = sessions.filter((session: any) => {
+          return session.formationId = Number(this.formation.id); 
+        });
+      },
+      (error) => {
+        console.error('Error fetching sessions:', error); 
+      }
+    );
   }
 
   loadTrainers(): void {
-    this.trainerService.getTrainers().subscribe((trainers) => {
-      this.trainers = trainers;
-    });
+    this.trainerService.getTrainers().subscribe(
+      (trainers) => {
+        this.trainers = trainers;
+      },
+      (error) => {
+        console.error('Error fetching trainers:', error); 
+      }
+    );
   }
 
   getTrainerNames(trainerIds: number[]): string {
@@ -62,23 +80,18 @@ export class FormationDetailsComponent implements OnInit {
       })
       .join(', ');
   }
-  getTrainerName(trainerIds: number[]) {
-    this.trainerService.getTrainerById(trainerIds).subscribe((data) => {
-      this.trainer = data;
-    })
-  }
 
   register(sessionId: number): void {
-    const session = this.sessions.find((s) => s.id === sessionId);
+    const session = this.sessions.find((s) => s.id == sessionId);
     if (session && session.candidateIds.length < 15) {
-      this.showForm = true;
+      this.showForm = true; 
     } else {
-      this.isFull = true;
+      this.isFull = true; 
     }
   }
 
   onSubmit(): void {
     alert('Subscription successful!');
-    this.showForm = false;
+    this.showForm = false; 
   }
 }
