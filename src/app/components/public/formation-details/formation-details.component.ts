@@ -17,6 +17,7 @@ export class FormationDetailsComponent implements OnInit {
   formation: any;
   sessions: any[] = [];
   trainers: any[] = [];
+  trainer: any;
   isFull = false;
   showForm = false;
   candidate = { name: '', email: '' };
@@ -30,9 +31,9 @@ export class FormationDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    console.log('Formation ID:', id); 
-    this.formationService.getFormations(id).subscribe((data) => {
-      console.log('Formation Data:', data); 
+    console.log('Formation ID:', id);
+    this.formationService.getFormation(id).subscribe((data) => {
+      console.log('Formation Data:', data);
       this.formation = data;
       this.loadSessions();
     });
@@ -41,9 +42,9 @@ export class FormationDetailsComponent implements OnInit {
 
   loadSessions(): void {
     this.sessionService.getSessions().subscribe((sessions) => {
-      console.log('All Sessions:', sessions); 
-      this.sessions = sessions.filter((session: any) => session.formationId === Number(this.formation.id)); 
-      console.log('Filtered Sessions:', this.sessions); 
+      console.log('All Sessions:', sessions); // Debugging
+      this.sessions = sessions.filter((session: any) => session.formationId === Number(this.formation.id)); // Convert to number
+      console.log('Filtered Sessions:', this.sessions); // Debugging
     });
   }
 
@@ -56,10 +57,15 @@ export class FormationDetailsComponent implements OnInit {
   getTrainerNames(trainerIds: number[]): string {
     return trainerIds
       .map((id) => {
-        const trainer = this.trainers.find((t) => t.id === id);
+        const trainer = this.trainers.find((t) => t.id == id);
         return trainer ? `${trainer.firstName} ${trainer.lastName}` : 'Unknown Trainer';
       })
       .join(', ');
+  }
+  getTrainerName(trainerIds: number[]) {
+    this.trainerService.getTrainerById(trainerIds).subscribe((data) => {
+      this.trainer = data;
+    })
   }
 
   register(sessionId: number): void {

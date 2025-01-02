@@ -75,14 +75,14 @@ export class SessionsComponent implements OnInit {
     });
   }
   getFormationName(formationId: number): string {
-    const formation = this.formations.find((f) => f.id === formationId);
+    const formation = this.formations.find((f) => f.id == formationId);
     return formation ? formation.title : 'Unknown Formation';
   }
 
   getTrainerNames(trainerIds: number[]): string {
     return trainerIds
       .map((id) => {
-        const trainer = this.trainers.find((t) => t.id === id);
+        const trainer = this.trainers.find((t) => t.id == id);
         return trainer ? `${trainer.firstName} ${trainer.lastName}` : 'Unknown Trainer';
       })
       .join(', ');

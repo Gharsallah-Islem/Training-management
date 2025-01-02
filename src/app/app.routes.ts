@@ -11,7 +11,7 @@ import { SessionsComponent } from './components/admin/sessions/sessions.componen
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'formations', component: PublicFormationsComponent },
-    { path: 'formations/:id', component: FormationDetailsComponent },
+    { path: 'details/:id', component: FormationDetailsComponent },
     {
         path: 'admin', component: AdminComponent, children: [
             { path: 'candidates', component: CandidatesComponent },

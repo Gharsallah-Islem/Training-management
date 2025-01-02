@@ -1,13 +1,23 @@
 <div class="container mt-4">
-    <h2 class="text-dark">Formations Disponibles</h2>
+    <h2 class="mb-4">Formations Disponibles</h2>
+
+    <!-- Search Bar -->
+    <div class="mb-4">
+        <input type="text" class="form-control" placeholder="Rechercher une formation..." [(ngModel)]="searchQuery"
+            (input)="filterFormations()" />
+    </div>
+
+    <!-- Formations List -->
     <div class="row">
-        <div *ngFor="let formation of formations" class="col-md-4 mb-3">
+        <div *ngFor="let formation of filteredFormations" class="col-md-4 mb-3">
             <div class="card h-100">
                 <img [src]="formation.photo" class="card-img-top" alt="{{ formation.title }}">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ formation.title }}</h5>
                     <p class="card-text">{{ formation.description }}</p>
-                    <a [routerLink]="['/formations', formation.id]" class="btn btn-primary mt-auto">Voir les Détails</a>
+                    <a [routerLink]="['/details', formation.id]" class="btn btn-primary mt-auto">
+                        Voir les Détails
+                    </a>
                 </div>
             </div>
         </div>
