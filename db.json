@@ -6,6 +6,7 @@
       "description": "Formation de 2 mois pour devenir développeur React",
       "date": "2021-12-01",
       "duration": 2,
+      "programme": "./assets/programme/react_prg.pdf",
       "categories": [
         "Web Development",
         "JavaScript",
@@ -26,6 +27,7 @@
       "description": "Formation de 2 mois pour devenir développeur Vue",
       "date": "2022-01-01",
       "duration": 2,
+      "programme": "./assets/programme/vue_prg.pdf",
       "categories": [
         "Web Development",
         "JavaScript",
@@ -45,6 +47,7 @@
       "description": "Formation de 2 mois pour devenir développeur Angular",
       "date": "2022-02-01",
       "duration": 2,
+      "programme": "./assets/programme/angular_prg.pdf",
       "categories": [
         "Web Development",
         "JavaScript",
@@ -64,6 +67,7 @@
       "description": "Formation de 2 mois pour devenir développeur Node.js",
       "date": "2022-03-01",
       "duration": 2,
+      "programme": "./assets/programme/node_prg.pdf",
       "categories": [
         "Web Development",
         "JavaScript",
@@ -83,6 +87,7 @@
       "description": "Formation de 2 mois pour devenir développeur Python",
       "date": "2022-04-01",
       "duration": 2,
+      "programme": "./assets/programme/python_prg.pdf",
       "categories": [
         "Web Development",
         "Python",
@@ -102,6 +107,7 @@
       "description": "Formation de 2 mois pour devenir développeur C",
       "date": "2022-04-01",
       "duration": 2,
+      "programme": "./assets/programme/c_prg.pdf",
       "categories": [
         "Programming",
         "C"
@@ -120,6 +126,7 @@
       "description": "Formation de 2 mois pour devenir développeur C++",
       "date": "2022-05-01",
       "duration": 2,
+      "programme": "./assets/programme/c++_prg.pdf",
       "categories": [
         "Programming",
         "C++"
@@ -138,6 +145,7 @@
       "description": "Formation de 2 mois pour devenir développeur Spring Boot",
       "date": "2022-06-01",
       "duration": 2,
+      "programme": "./assets/programme/springboot_prg.pdf",
       "categories": [
         "Web Development",
         "Java",
@@ -157,6 +165,7 @@
       "description": "Formation de 2 mois pour devenir développeur Ruby",
       "date": "2022-08-01",
       "duration": 2,
+      "programme": "./assets/programme/ruby_prg.pdf",
       "categories": [
         "Programming",
         "Ruby"
@@ -175,6 +184,7 @@
       "description": "Formation de 2 mois pour devenir développeur Go",
       "date": "2022-09-01",
       "duration": 2,
+      "programme": "./assets/programme/go_prg.pdf",
       "categories": [
         "Programming",
         "Go"
@@ -459,7 +469,7 @@
       "phone": "987654321",
       "idNumber": "987654321",
       "photo": "smith_john.jpg",
-      "cv": "smith_john_cv.pdf",
+      "cv": "./assets/cv/smith_john_cv.pdf",
       "specialties": [
         "Vue",
         "Node.js"
@@ -473,7 +483,7 @@
       "phone": "456123789",
       "idNumber": "456123789",
       "photo": "doe_jane.jpg",
-      "cv": "doe_jane_cv.pdf",
+      "cv": "./assets/cv/doe_jane_cv.pdf",
       "specialties": [
         "Python",
         "Django"
@@ -487,7 +497,7 @@
       "phone": "321654987",
       "idNumber": "321654987",
       "photo": "brown_charlie.jpg",
-      "cv": "brown_charlie_cv.pdf",
+      "cv": "./assets/cv/brown_charlie_cv.pdf",
       "specialties": [
         "Java",
         "Spring"
@@ -501,7 +511,7 @@
       "phone": "654789321",
       "idNumber": "654789321",
       "photo": "johnson_emily.jpg",
-      "cv": "johnson_emily_cv.pdf",
+      "cv": "./assets/cv/johnson_emily_cv.pdf",
       "specialties": [
         "C#",
         ".NET"
@@ -515,7 +525,7 @@
       "phone": "789123456",
       "idNumber": "789123456",
       "photo": "williams_david.jpg",
-      "cv": "williams_david_cv.pdf",
+      "cv": "./assets/cv/williams_david_cv.pdf",
       "specialties": [
         "Ruby",
         "Rails"
@@ -529,7 +539,7 @@
       "phone": "123789456",
       "idNumber": "123789456",
       "photo": "jones_sophia.jpg",
-      "cv": "jones_sophia_cv.pdf",
+      "cv": "./assets/cv/jones_sophia_cv.pdf",
       "specialties": [
         "PHP",
         "Laravel"
@@ -543,7 +553,7 @@
       "phone": "987321654",
       "idNumber": "987321654",
       "photo": "garcia_michael.jpg",
-      "cv": "garcia_michael_cv.pdf",
+      "cv": "./assets/cv/garcia_michael_cv.pdf",
       "specialties": [
         "Go",
         "Kubernetes"
@@ -557,7 +567,7 @@
       "phone": "456987123",
       "idNumber": "456987123",
       "photo": "martinez_olivia.jpg",
-      "cv": "martinez_olivia_cv.pdf",
+      "cv": "./assets/cv/martinez_olivia_cv.pdf",
       "specialties": [
         "Swift",
         "iOS"
@@ -571,7 +581,7 @@
       "phone": "321987654",
       "idNumber": "321987654",
       "photo": "rodriguez_james.jpg",
-      "cv": "rodriguez_james_cv.pdf",
+      "cv": "./assets/cv/rodriguez_james_cv.pdf",
       "specialties": [
         "Android",
         "Kotlin"

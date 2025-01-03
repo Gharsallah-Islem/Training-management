@@ -1,27 +1,18 @@
-<div *ngIf="isLoading" class="text-center mt-4">
-    <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
+<div class="container mt-4">
+    <h2>{{ formation?.title }}</h2>
+    <p>{{ formation?.description }}</p>
+    <p>Charge horaire: {{ formation?.duration }} heures</p>
 
-<div *ngIf="!isLoading" class="container mt-4">
-    <h2 class="text-dark">{{ formation?.title }}</h2>
-
-    <p class="text-dark">{{ formation?.description }}</p>
-
-    <p class="text-dark">Charge horaire: {{ formation?.duration }} heures</p>
-
-    <a [href]="formation?.programme" target="_blank" class="btn btn-primary">Télécharger le programme</a>
+    <a [href]="formation?.programme" download class="btn btn-primary">
+        Télécharger le programme
+    </a>
 
     <h3 class="text-dark mt-4">Sessions à venir</h3>
     <ul class="list-group">
         <li *ngFor="let session of sessions" class="list-group-item">
             <p class="text-dark">Formateur(s): {{ getTrainerNames(session.trainerIds) }}</p>
-
             <p class="text-dark">Date de début: {{ session.startDate }}</p>
-
             <p class="text-dark">Date de fin: {{ session.endDate }}</p>
-
             <button class="btn btn-primary" (click)="register(session.id)"
                 [disabled]="session.candidateIds.length >= 15">
                 S'inscrire
@@ -36,12 +27,10 @@
                 <label for="name">Nom</label>
                 <input type="text" class="form-control" id="name" [(ngModel)]="candidate.name" name="name" required>
             </div>
-
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" [(ngModel)]="candidate.email" name="email" required>
             </div>
-
             <button type="submit" class="btn btn-success">Soumettre</button>
         </form>
     </div>
